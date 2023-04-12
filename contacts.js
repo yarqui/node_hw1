@@ -14,11 +14,6 @@ const getContactById = async (contactId) => {
   return allContacts.find((item) => item.id === contactId) || null;
 };
 
-// TODO: REMOVE
-// (async () => {
-//   console.log(await getContactById("qdggE76Jtbfd9eWJHrssH"));
-// })();
-
 const removeContact = async (contactId) => {
   const allContacts = await listContacts();
   const index = allContacts.findIndex((item) => item.id === contactId);
@@ -33,11 +28,6 @@ const removeContact = async (contactId) => {
   return result;
 };
 
-// TODO: REMOVE
-// (async () => {
-//   console.log(await removeContact("qdggE76Jtbfd9eWJHrssH"));
-// })();
-
 const addContact = async (name, email, phone) => {
   const allContacts = await listContacts();
   const newContact = { id: nanoid(), name, email, phone };
@@ -47,9 +37,6 @@ const addContact = async (name, email, phone) => {
 
   return newContact;
 };
-
-// TODO: REMOVE
-// addContact("Stan", "dogm@gmg.com", "32355434");
 
 module.exports = {
   listContacts,

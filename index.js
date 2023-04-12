@@ -18,23 +18,18 @@ program.parse(process.argv);
 
 const argv = program.opts();
 
-// TODO:
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
     case "list":
       const allContacts = await listContacts();
-      return console.log(allContacts);
+      return console.table(allContacts);
 
     case "get":
       const oneContact = await getContactById(id);
       return console.log(oneContact);
 
     case "add":
-      const newContact = await addContact(
-        name,
-        email,
-        phone
-      ); /**Should I use {name, email, phone} ?*/
+      const newContact = await addContact(name, email, phone);
       return console.log(newContact);
 
     case "remove":
